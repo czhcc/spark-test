@@ -24,6 +24,10 @@ spark-shell --master spark://localhost:7077
 提交Spark程序执行
 spark-submit --master spark://localhost:7077 --class com.czh.App abc.jar
 
+--driver-class-path D:\oracle\client\ojdbc7.jar
+
+3.在Eclipse里运行
+http://f.dataguru.cn/thread-322668-1-1.html
 
 
 
