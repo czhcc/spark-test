@@ -11,7 +11,12 @@ import org.apache.spark.sql.hive.HiveContext
 object OracleLoadApp {
   def main(args: Array[String])
   {
-    val conf = new SparkConf().setAppName("Oracle Load Application")
+//    val conf = new SparkConf().setAppName("Oracle Load Application")
+    
+    val conf = new SparkConf().setMaster("spark://localhost:7077").setAppName("Oracle Read Application")
+    conf.set("spark.driver.extraClassPath", "D:\\oracle\\client\\ojdbc7.jar")
+    conf.setSparkHome("D:\\opentools\\apache\\spark-1.3.1-bin-hadoop2.4")
+    
     val sc = new SparkContext(conf)
     val sqlContext = new HiveContext(sc)
     val jdbcDF = sqlContext.load("jdbc", 
@@ -21,5 +26,7 @@ object OracleLoadApp {
             "password"->"win2_test",
             "dbtable" -> "(select sheng,shi,xb,whcd,to_char(rs) rs from test_fxt)"))//(select sheng,shi,xb,whcd,to_char(rs) rs from test_fxt)
     jdbcDF.saveAsTable("test_fxt", "parquet", SaveMode.Overwrite)
+    
+    sc.stop()
   }
 }
