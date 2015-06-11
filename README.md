@@ -26,9 +26,27 @@ spark-submit --master spark://localhost:7077 --class com.czh.App abc.jar
 
 --driver-class-path D:\oracle\client\ojdbc7.jar
 
-3.在Eclipse里运行
-http://f.dataguru.cn/thread-322668-1-1.html
+3.和Hive有关的启动
+启动metastore       命令  ./hive --service metastore
+在公司里是238
 
+再239启动hiveserver2   命令  ./hive --service hiveserver2
+239的这个启动是单纯的Hive启动，和Spark没关
+
+启动thriftserver时需要查看hive-site.xml文件，看看是在那台机器上启动thriftserver
+在hive-site.xml里的hive.server2.thrift.bind.host参数
+然后
+start-thriftserver.sh --master spark://home7:7077
+
+4.在Eclipse里运行
+http://f.dataguru.cn/thread-322668-1-1.html
+http://blog.csdn.net/xiao_jun_0820/article/details/43230225
+http://my.oschina.net/132722/blog/196027
+http://felixcui-blog.readthedocs.org/en/latest/spark/spark-yarn-internal.html
+
+5.环境查看
+http://h238:8088/cluster/apps
+http://h238:18080/
 
 
 参考：

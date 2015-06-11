@@ -30,19 +30,34 @@
 			<version>${scala.version}</version>
 		</dependency>
 		<dependency>
+			<groupId>org.scala-lang</groupId>
+			<artifactId>scala-reflect</artifactId>
+			<version>${scala.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.scala-lang</groupId>
+			<artifactId>scala-actors</artifactId>
+			<version>${scala.version}</version>
+		</dependency>
+		<dependency>
 			<groupId>org.apache.spark</groupId>
 			<artifactId>spark-core_2.10</artifactId>
 			<version>1.3.1</version>
 		</dependency>
 		<dependency>
-  			<groupId>org.apache.spark</groupId>
-  			<artifactId>spark-sql_2.10</artifactId>
-  			<version>1.3.1</version>
+			<groupId>org.apache.spark</groupId>
+			<artifactId>spark-sql_2.10</artifactId>
+			<version>1.3.1</version>
 		</dependency>
 		<dependency>
-  			<groupId>org.apache.spark</groupId>
-  			<artifactId>spark-hive_2.10</artifactId>
-  			<version>1.3.1</version>
+			<groupId>org.apache.spark</groupId>
+			<artifactId>spark-hive_2.10</artifactId>
+			<version>1.3.1</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.spark</groupId>
+			<artifactId>spark-catalyst_2.10</artifactId>
+			<version>1.3.1</version>
 		</dependency>
 
 		<!-- Test -->
@@ -52,9 +67,7 @@
 			<version>4.11</version>
 			<scope>test</scope>
 		</dependency>
-		<!-- 
-		https://bintray.com/package/files/pchiusano/maven/scalaz-stream?order=desc&sort=size&basePath=org%2Fscalaz%2Fstream%2Fscalaz-stream_2.10%2F0.6a&tab=files
-		 -->
+		<!-- https://bintray.com/package/files/pchiusano/maven/scalaz-stream?order=desc&sort=size&basePath=org%2Fscalaz%2Fstream%2Fscalaz-stream_2.10%2F0.6a&tab=files -->
 		<dependency>
 			<groupId>org.specs2</groupId>
 			<artifactId>specs2_${scala.tools.version}</artifactId>

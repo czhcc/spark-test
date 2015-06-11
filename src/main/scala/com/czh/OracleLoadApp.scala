@@ -13,9 +13,7 @@ object OracleLoadApp {
   {
 //    val conf = new SparkConf().setAppName("Oracle Load Application")
     
-    val conf = new SparkConf().setMaster("spark://localhost:7077").setAppName("Oracle Read Application")
-    conf.set("spark.driver.extraClassPath", "D:\\oracle\\client\\ojdbc7.jar")
-    conf.setSparkHome("D:\\opentools\\apache\\spark-1.3.1-bin-hadoop2.4")
+    val conf = new SparkConf().setAppName("Oracle Read Application")
     
     val sc = new SparkContext(conf)
     val sqlContext = new HiveContext(sc)
