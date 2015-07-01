@@ -1,7 +1,10 @@
 # spark-test
 1.Spark编译
 编译Spark时的命令，先设置虚拟机内存：
+Linux:
 export MAVEN_OPTS="-Xmx2g -XX:MaxPermSize=512M -XX:ReservedCodeCacheSize=512m"
+Windows:
+set MAVEN_OPTS=-Xmx2g -XX:MaxPermSize=512M -XX:ReservedCodeCacheSize=512m
 然后执行
 mvn -Pyarn -Phadoop-2.4 -Dhadoop.version=2.5.0 -Phive -Phive-0.13.1 -Phive-thriftserver -DskipTests clean package
 
@@ -25,6 +28,7 @@ spark-shell --master spark://localhost:7077
 spark-submit --master spark://localhost:7077 --class com.czh.App abc.jar
 
 --driver-class-path D:\oracle\client\ojdbc7.jar
+--driver-library-path D:\oracle\client\ojdbc7.jar
 
 3.和Hive有关的启动
 启动metastore       命令  ./hive --service metastore
@@ -47,6 +51,13 @@ http://felixcui-blog.readthedocs.org/en/latest/spark/spark-yarn-internal.html
 5.环境查看
 http://h238:8088/cluster/apps
 http://h238:18080/
+
+6.MySql问题
+FAILED: Error in metadata: javax.jdo.JDOException: Couldnt obtain a new sequence (unique id) : Binary logging not possible. Message: Transaction level 'READ-COMMITTED' in InnoDB is not safe for binlog mode 'STATEMENT'
+
+因为，READ-COMMITTED需要把bin-log以mixed方式来记录，用以下命令来修改：
+
+set global binlog_format='MIXED';
 
 
 参考：
